@@ -234,7 +234,7 @@ class Donut
     }
 
 
-    public function renderImage($x, $y): string
+    public function renderImage($x, $y)
     {
         return $this->_render()->toRasterImage($x, $y);
     }
