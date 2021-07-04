@@ -21,6 +21,7 @@ use SVG\Nodes\Shapes\SVGCircle;
  *
  * @package tiny-phpeanuts
  */
+
 class Donut
 {
     /**
@@ -188,7 +189,7 @@ class Donut
      * Functionality
      */
 
-    public function _render(): string
+    public function _render()
     {
         $svg = new SVG($this->size, $this->size);
         $doc = $svg->getDocument();
