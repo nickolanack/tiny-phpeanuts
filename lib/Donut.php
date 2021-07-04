@@ -188,7 +188,7 @@ class Donut
      * Functionality
      */
 
-    public function render(): string
+    public function _render(): string
     {
         $svg = new SVG($this->size, $this->size);
         $doc = $svg->getDocument();
@@ -224,7 +224,19 @@ class Donut
             $doc->setAttribute('class', $this->classes);
         }
 
-        return $svg->toXMLString(false);
+        return $svg;
+    }
+
+
+    public function render(): string
+    {
+        return $this->_render()->toXMLString(false);
+    }
+
+
+    public function renderImage($x, $y): string
+    {
+        return $this->_render()->toRasterImage($x, $y);
     }
 
     private function constructSegments(): array
@@ -242,7 +254,7 @@ class Donut
                 $entry['color'],
                 $entry['value'],
                 $thickness,
-                $start,
+                $start
             );
 
             $start += $entry['value'] + $spacing;
